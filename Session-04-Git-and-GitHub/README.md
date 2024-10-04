@@ -209,8 +209,9 @@ For example, after pushing the changes to your forked repository, you request a 
 
 Instead (or in addition) to credentialling your system with GitHub from `R` account, you can use an app called GitHub Desktop, which can be downloaded [here](https://desktop.github.com/). This app allows you to interact with GitHub from your local system.
   
-### Activity
+  
 
+### Activity
 1. Create a new R Studio project and name it "my-GEO712-repository"
 
 2. Initialize a reproducible environment and install packages as needed
