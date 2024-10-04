@@ -155,6 +155,7 @@ In your forked repo edit the following table to include your name and program:
 
 Student Name | Last Name | Program
 -|-|-
+Claire | Estey | Biology
 Niloofar | Nalaee | Geography
 Ricardo | Barros Lourenco | Geography
 Anastasia | Soukhov | Geography
@@ -175,9 +176,19 @@ Emilie | Diesbourg | Biology
 Noah | Britt | PNB
 Elizabeth | Phillips | PNB
 Claire | Gillespie | Chemistry
+Athena | Flores Miranda | Medical Sciences 
+Haoran | Xu | Geography
 Zaineb | Hamoodi | Chemical Biology
 Liam | Surry | Chemical Biology 
 Zehui | Yin | Geography
+
+#### I am creating conflict
+
+A conflict!
+
+### Hi :)
+
+Hope you all have a good day!
 
 #### Workflow
 Serenity is the way of the sage
