@@ -1,6 +1,12 @@
 
 <!-- badges: start -->
 <!-- badges: end -->
+<!--
+&#10;Check this for how to migrate an EndNote database to Zotero:
+&#10;https://www.zotero.org/support/kb/endnote_import
+&#10;Check this for how to work with Zotero from RStudio:
+&#10;https://gsverhoeven.github.io/post/zotero-rmarkdown-csl/
+&#10;-->
 
 # GEOG 712 Reproducible Research
 
@@ -40,10 +46,10 @@ using the LaTeX command `\ref{}`. More generally, referencing objects
 works for chapters, sections, subsections, footnotes, equations,
 figures, and tables, and takes the following form:
 
-| Format           | Use                                                                                                                                                                                                                                        |
-|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Format | Use |
+|----|----|
 | `\label{marker}` | Used to give a *marker* to an object. The *marker* is a short, self-explanatory text, possibly accompanied of additional information; for instance `fig:` to identify figures, `tab:` to identify tables, and `eq:` to identify equations. |
-| `\ref{marker}`   | Used to reference the object corresponding to the *marker*; it will number the objects automatically.                                                                                                                                      |
+| `\ref{marker}` | Used to reference the object corresponding to the *marker*; it will number the objects automatically. |
 
 ### But what about bibliographic references?
 
@@ -129,17 +135,30 @@ There are different ways of retrieving entries for a BibTeX file.
 The simplest is to use Google Scholar. Search for the topic or item that
 you are interested in:
 
-![Google Scholar search](Session-11-Figure-1.png)
+<figure>
+<img src="Session-11-Figure-1.png" alt="Google Scholar search" />
+<figcaption aria-hidden="true">Google Scholar search</figcaption>
+</figure>
 
 Once you have found the reference that you want, click on the quotation
 mark:
 
-![Getting a reference in Google Scholar](Session-11-Figure-2.png)
+<figure>
+<img src="Session-11-Figure-2.png"
+alt="Getting a reference in Google Scholar" />
+<figcaption aria-hidden="true">Getting a reference in Google
+Scholar</figcaption>
+</figure>
 
 Then, in the window that pops up, select BibTeX. You can copy and paste
 the entry from there.
 
-![Selecting BibTeX in Google Scholar](Session-11-Figure-3.png)
+<figure>
+<img src="Session-11-Figure-3.png"
+alt="Selecting BibTeX in Google Scholar" />
+<figcaption aria-hidden="true">Selecting BibTeX in Google
+Scholar</figcaption>
+</figure>
 
 I often use Google Scholar, especially for references in the “gray”
 literature, that is, government reports, reports by international
@@ -148,20 +167,38 @@ focused searches of the scientific and academic literature my preference
 is to use Web of Science (subscription needed, but most universities
 have access to this).
 
-![Web of Science search](Session-11-Figure-4.png)
+<figure>
+<img src="Session-11-Figure-4.png" alt="Web of Science search" />
+<figcaption aria-hidden="true">Web of Science search</figcaption>
+</figure>
 
 Once you have done a search, select the items that you wish to export
 and click the “Export” button:
 
-![Selecting Web of Science items](Session-11-Figure-5.png)
+<figure>
+<img src="Session-11-Figure-5.png"
+alt="Selecting Web of Science items" />
+<figcaption aria-hidden="true">Selecting Web of Science
+items</figcaption>
+</figure>
 
 This will give you the option to save in other file formats:
 
-![Saving items in other file formats](Session-11-Figure-6.png)
+<figure>
+<img src="Session-11-Figure-6.png"
+alt="Saving items in other file formats" />
+<figcaption aria-hidden="true">Saving items in other file
+formats</figcaption>
+</figure>
 
 Other file formats include BibTeX:
 
-![Saving items in BibTeX format](Session-11-Figure-7.png)
+<figure>
+<img src="Session-11-Figure-7.png"
+alt="Saving items in BibTeX format" />
+<figcaption aria-hidden="true">Saving items in BibTeX
+format</figcaption>
+</figure>
 
 I currently keep a hybrid reference management system. I continue to use
 EndNote to keep my references, and then I export from EndNote to BibTeX
@@ -170,7 +207,12 @@ thing that you need to do is select BibTeX Export as the format, before
 copying all selected references with formatting. You can then paste
 these references to you `.bib` file:
 
-![Exporting in BibTeX format from EndNote](Session-11-Figure-8.png)
+<figure>
+<img src="Session-11-Figure-8.png"
+alt="Exporting in BibTeX format from EndNote" />
+<figcaption aria-hidden="true">Exporting in BibTeX format from
+EndNote</figcaption>
+</figure>
 
 ### Use Zotero
 
@@ -228,8 +270,6 @@ editor provides some additional functionality, including the ability to
 insert references from your Zotero library or directly searching the
 web.
 
-### Tables
-
 Tables are important elements in the presentation of research: they are
 used to summarize information in a form that is convenient and easy to
 understand. Creating tables using a word processor (\*cough\* Word
@@ -237,6 +277,8 @@ understand. Creating tables using a word processor (\*cough\* Word
 merging cells, etc. Furthermore, some tables need to be reproduced
 manually if the analyses change, something that is almost guaranteed to
 happen during the course of revisions, if not before.
+
+### Tables: markdown
 
 Markdown has a simple way of creating tables, as we saw before in
 [Session
@@ -256,69 +298,34 @@ Which renders as:
 The visual rmarkdown editor can also be used to create tables. This
 approach is not very useful when creating tables programmatically. So
 instead, there are several packages in `R` that are useful to create
-more sophisticated tables. My go-to package for this is {kableExtra}.
-The input for {kableExtra} is a data frame, which is convenient because
-likely most of the information you need to tabulate is there, or is the
-result of analysis thereof.
+more sophisticated tables.
+
+### Tables: [{kableExtra}](https://haozhu233.github.io/kableExtra/)
+
+My go-to package for this is {kableExtra}. The input for {kableExtra} is
+a data frame, which is convenient because likely most of the information
+you need to tabulate is there, or is the result of analysis thereof.
 
 A table can be generated in a chunk of code using {kableExtra} as
 follows:
 
-    <table>
-     <thead>
-      <tr>
-       <th style="text-align:left;"> Statistic </th>
-       <th style="text-align:right;"> Population </th>
-       <th style="text-align:right;"> GDPPC </th>
-       <th style="text-align:right;"> bblpd </th>
-       <th style="text-align:right;"> CO2_1995 </th>
-       <th style="text-align:right;"> CO2_2005 </th>
-       <th style="text-align:right;"> CO2_2015 </th>
-      </tr>
-     </thead>
-    <tbody>
-      <tr>
-       <td style="text-align:left;"> Mean </td>
-       <td style="text-align:right;"> 38466352 </td>
-       <td style="text-align:right;"> 13572.01 </td>
-       <td style="text-align:right;"> 490635.3 </td>
-       <td style="text-align:right;"> 1.212561e+05 </td>
-       <td style="text-align:right;"> 152549.1866 </td>
-       <td style="text-align:right;"> 1.849777e+05 </td>
-      </tr>
-      <tr>
-       <td style="text-align:left;"> Min </td>
-       <td style="text-align:right;"> 5292 </td>
-       <td style="text-align:right;"> 145.00 </td>
-       <td style="text-align:right;"> 400.0 </td>
-       <td style="text-align:right;"> 1.236166e+01 </td>
-       <td style="text-align:right;"> 13.6606 </td>
-       <td style="text-align:right;"> 2.808444e+01 </td>
-      </tr>
-      <tr>
-       <td style="text-align:left;"> Max </td>
-       <td style="text-align:right;"> 1379302771 </td>
-       <td style="text-align:right;"> 100161.00 </td>
-       <td style="text-align:right;"> 19530000.0 </td>
-       <td style="text-align:right;"> 5.294648e+06 </td>
-       <td style="text-align:right;"> 6174716.6026 </td>
-       <td style="text-align:right;"> 1.064179e+07 </td>
-      </tr>
-      <tr>
-       <td style="text-align:left;"> Standard Deviation </td>
-       <td style="text-align:right;"> 142048011 </td>
-       <td style="text-align:right;"> 18550.58 </td>
-       <td style="text-align:right;"> 1752468.8 </td>
-       <td style="text-align:right;"> 4.891283e+05 </td>
-       <td style="text-align:right;"> 648862.7500 </td>
-       <td style="text-align:right;"> 8.920666e+05 </td>
-      </tr>
-    </tbody>
-    </table>
+
+
+    |Statistic          | Population|     GDPPC|      bblpd|     CO2_1995|     CO2_2005|     CO2_2015|
+    |:------------------|----------:|---------:|----------:|------------:|------------:|------------:|
+    |Mean               |   38466352|  13572.01|   490635.3| 1.212561e+05|  152549.1866| 1.849777e+05|
+    |Min                |       5292|    145.00|      400.0| 1.236166e+01|      13.6606| 2.808444e+01|
+    |Max                | 1379302771| 100161.00| 19530000.0| 5.294648e+06| 6174716.6026| 1.064179e+07|
+    |Standard Deviation |  142048011|  18550.58|  1752468.8| 4.891283e+05|  648862.7500| 8.920666e+05|
 
 This gives the following table in the output:
 
-![First not very successful example of table](Session-11-Figure-9.png)
+<figure>
+<img src="Session-11-Figure-9.png"
+alt="First not very successful example of table" />
+<figcaption aria-hidden="true">First not very successful example of
+table</figcaption>
+</figure>
 
 As you can see, this is not a great-looking table. It is too wide and
 difficult to read. I can improve this table in several different ways.
@@ -332,7 +339,12 @@ the page:
 The result is a table that does not overflow, but now the font is too
 small for comfort. See:
 
-![Second example of table: latex\_options](Session-11-Figure-10.png)
+<figure>
+<img src="Session-11-Figure-10.png"
+alt="Second example of table: latex_options" />
+<figcaption aria-hidden="true">Second example of table:
+latex_options</figcaption>
+</figure>
 
 A reason why the table is so wide in the first place is that the numbers
 reported are humongous. I can scale the values upstream to report
@@ -371,8 +383,12 @@ smaller, easier to read numbers, and then pass that dataframe to
 This improves to some extent the aspect of the table: it is not as wide
 and the numbers are easier to comprehend. See:
 
-![Third example of table: manipulating data
-upstream](Session-11-Figure-11.png)
+<figure>
+<img src="Session-11-Figure-11.png"
+alt="Third example of table: manipulating data upstream" />
+<figcaption aria-hidden="true">Third example of table: manipulating data
+upstream</figcaption>
+</figure>
 
 But I still have way too many decimals which are not particularly
 informative (typically only two to four [significant
@@ -387,7 +403,12 @@ argument `digits` in the call to `kable`:
 This gives a more compact table without all the trailing, less
 informative digits:
 
-![Fourth example of table: rounding numbers](Session-11-Figure-12.png)
+<figure>
+<img src="Session-11-Figure-12.png"
+alt="Fourth example of table: rounding numbers" />
+<figcaption aria-hidden="true">Fourth example of table: rounding
+numbers</figcaption>
+</figure>
 
 I can further make the table easier to read by adding stripes; also, I
 like the aspect of tables with booktabs, which removes unnecessary
@@ -403,8 +424,12 @@ are obtained by setting `booktabs = TRUE` in the call to `kable`:
 The table now is more pleasant to the eye, easier to read, and easier to
 understand too:
 
-![Fifth example of table: booktabs and stripes as a
-latex\_option](Session-11-Figure-13.png)
+<figure>
+<img src="Session-11-Figure-13.png"
+alt="Fifth example of table: booktabs and stripes as a latex_option" />
+<figcaption aria-hidden="true">Fifth example of table: booktabs and
+stripes as a latex_option</figcaption>
+</figure>
 
 An issue after transforming the variables is that the units have
 changed! It is important to inform the reader of the units. I can change
@@ -426,8 +451,12 @@ follows:
 Unfortunately, the long names of the columns again make the table too
 wide and the font too small:
 
-![Sixth example of table: changing the column
-names](Session-11-Figure-14.png)
+<figure>
+<img src="Session-11-Figure-14.png"
+alt="Sixth example of table: changing the column names" />
+<figcaption aria-hidden="true">Sixth example of table: changing the
+column names</figcaption>
+</figure>
 
 To introduce line breaks in the names of the columns, we need to use the
 function `linebreak()`. Line breaks are identified by `\n`. At this
@@ -453,8 +482,12 @@ within a chunk of code; see below:
 
 This leads to my final table:
 
-![Final table: fixing the column names and using a
-caption](Session-11-Figure-15.png)
+<figure>
+<img src="Session-11-Figure-15.png"
+alt="Final table: fixing the column names and using a caption" />
+<figcaption aria-hidden="true">Final table: fixing the column names and
+using a caption</figcaption>
+</figure>
 
 It is possible to create tables with the results of different kinds of
 analysis, and the only trick is knowing where to extract the different
@@ -462,7 +495,7 @@ parts of the analysis that you wish to report (for example the
 coefficients, p-values, coefficients of determination, etc.)
 
 The following code is an example of a table that reports the results of
-regressing ![CO\_2](https://latex.codecogs.com/png.latex?CO_2 "CO_2")
+regressing ![CO_2](https://latex.codecogs.com/png.latex?CO_2 "CO_2")
 emissions on GDP by year:
 
 ``` r
@@ -498,12 +531,22 @@ kable(models.df,
 
 The table in the output document is this:
 
-![Example of table with regression results](Session-11-Figure-16.png)
+<figure>
+<img src="Session-11-Figure-16.png"
+alt="Example of table with regression results" />
+<figcaption aria-hidden="true">Example of table with regression
+results</figcaption>
+</figure>
 
 {kableExtra} can be used to do much more than this. This is an example
 of a table with sparklines:
 
-![Table with sparklines](Session-11-Figure-17.png)
+<figure>
+<img src="Session-11-Figure-17.png" alt="Table with sparklines" />
+<figcaption aria-hidden="true">Table with sparklines</figcaption>
+</figure>
+
+### Tables: [{GT}](https://gt.rstudio.com/)
 
 With this, we have most of the elements to write a self-contained paper
 that reports reproducible research.
@@ -511,7 +554,7 @@ that reports reproducible research.
 ## Suggested readings
 
 [BibTeX](http://www.bibtex.org/)  
-[KableExtra for
+[GT](https://gt.rstudio.com/) [KableExtra for
 HTML](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)  
 [KableExtra for
 PDF](https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf)

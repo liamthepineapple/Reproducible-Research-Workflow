@@ -1199,6 +1199,21 @@
       ],
       "Hash": "2bcca3848e4734eb3b16103bc9aa4b8e"
     },
+    "packr": {
+      "Package": "packr",
+      "Version": "0.0.0.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "paezha",
+      "RemoteRepo": "packr",
+      "RemoteRef": "master",
+      "RemoteSha": "0933a3460107c82b182b4784ddd41f3855dd7b41",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "efa977564b54193156b79df30ac1b9a3"
+    },
     "patchwork": {
       "Package": "patchwork",
       "Version": "1.2.0",
@@ -1588,6 +1603,22 @@
       "Source": "Repository",
       "Repository": "RSPM",
       "Hash": "96710351d642b70e8f02ddeb237c46a7"
+    },
+    "rticles": {
+      "Package": "rticles",
+      "Version": "0.27",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "knitr",
+        "lifecycle",
+        "rmarkdown",
+        "tinytex",
+        "utils",
+        "xfun",
+        "yaml"
+      ],
+      "Hash": "1a05d2cc06f9fb360d2dc15f99293dfe"
     },
     "rvest": {
       "Package": "rvest",
